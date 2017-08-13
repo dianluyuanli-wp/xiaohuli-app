@@ -4,6 +4,8 @@ var api = require('./api');
 var fs = require('fs');
 // 引入处理路径的模块
 var path = require('path');
+const favicon = require('serve-favicon');
+const resolve = file => path.resolve(__dirname, file);
 // 引入处理post数据的模块
 var bodyParser = require('body-parser')
 // 引入Express
@@ -11,13 +13,14 @@ var express = require('express');
 var app = express();
 
 app.set('port', (process.env.PORT || 5000));
+app.use(favicon(resolve('../dist/favicon.ico')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(api);
-app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/dist'));
 
 // views is directory for all template files
-app.set('views', __dirname + '/views');
+app.set('views', __dirname + '/dist');
 app.set('view engine', 'ejs');
 
 app.post('/api/setup', function (req, res) {
