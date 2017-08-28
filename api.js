@@ -16,14 +16,19 @@ router.get('/api/getArticle', (req, res) => {
 })
 
 router.get('/api/getArticles', (req, res) => {
-  const user = req.query.user	
+  //const user = req.query.user
+  const user = req.query.state.user.name
+  var data_t	
   db.Article.find({'user':user}, 'title date content', (err, doc) => {
     if (err) {
       console.log(err)
     } else if (doc) {
+	  //data_t=doc.sort({"content":1})
+	  //console.log(data_t)
       res.send(JSON.stringify(doc))
     }
   })
+  
 })
 
 router.post('/api/setup', function (req, res) {
