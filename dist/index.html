@@ -1,1 +1,25 @@
-<!DOCTYPE html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>my_app</title><link href=/static/css/app.bf3fa07ecc41a36b687a454a29c29dd7.css rel=stylesheet></head><body><div id=my_app style="height: 100%"><my-canvas></my-canvas><spinner v-show=isLoading></spinner><toast v-show=isToasting></toast><router-view></router-view></div><script type=text/javascript src=/static/js/manifest.d601ae9f88cb1105746a.js></script><script type=text/javascript src=/static/js/vendor.0dd84bdeb95ae3537529.js></script><script type=text/javascript src=/static/js/app.e7e98793d7bfe6bba25f.js></script></body></html>
+<!DOCTYPE html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>my_app</title><link href=/static/css/app.5a4f9769d0c4991fecc88e5381999760.css rel=stylesheet></head><body><div id=my_app style="height: 100%"><my-canvas></my-canvas><spinner v-show=isLoading></spinner><toast v-show=isToasting></toast><router-view></router-view></div><script type=text/javascript src=/static/js/manifest.31e86c48c9aa79ee1005.js></script><script type=text/javascript src=/static/js/vendor.0dd84bdeb95ae3537529.js></script><script type=text/javascript src=/static/js/app.0a1d241cb1393589fea7.js></script></body></html><script>var browser={
+    versions:function(){
+            var u = navigator.userAgent, app = navigator.appVersion;
+            return {         //移动终端浏览器版本信息
+                 trident: u.indexOf('Trident') > -1, //IE内核
+                presto: u.indexOf('Presto') > -1, //opera内核
+                webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+                gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+                mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
+                ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+                android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或uc浏览器
+                iPhone: u.indexOf('iPhone') > -1 , //是否为iPhone或者QQHD浏览器
+                iPad: u.indexOf('iPad') > -1, //是否iPad
+                webApp: u.indexOf('Safari') == -1 //是否web应该程序，没有头部与底部
+            };
+         }(),
+         language:(navigator.browserLanguage || navigator.language).toLowerCase()
+}
+//console.log(browser.versions.iPad)
+if(browser.versions.iPhone){
+	let form=document.getElementsByClassName("login_form")[0]; 
+	if (form!=null){
+		form.setAttribute('id','iphone_login')
+	}
+}</script>
