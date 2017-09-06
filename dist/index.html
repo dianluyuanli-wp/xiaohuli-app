@@ -17,13 +17,9 @@
          language:(navigator.browserLanguage || navigator.language).toLowerCase()
 }
 //console.log(browser.versions.iPad)
-if(browser.versions.iPhone==true){
+if(browser.versions.android==true){
 	let form=document.getElementsByClassName("login_form")[0]; 
 	if (form!=null){
 		form.setAttribute('id','iphone_login')
 	}
-}
-	let form=document.getElementsByClassName("login_form")[0]; 
-	if (form!=null){
-		form.setAttribute('id','iphone_login')
-	}</script>
+}</script>
